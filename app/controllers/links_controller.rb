@@ -1,14 +1,15 @@
 class LinksController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
   def index
     @links = Link.all.order('created_at DESC')
   end
 
   def new
-    @link = Link.new
+    @link = current_user.links.build
   end
 
   def create
-    @link = Link.create(link_params)
+    @link = current_user.links.create(link_params)
     if @link.save
       redirect_to root_path
     else

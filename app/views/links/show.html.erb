@@ -1,3 +1,5 @@
 <p><%= @link.title %></p>
-<%= link_to 'edit', edit_link_path %>
-|<%= link_to 'delete', link_path(@link), method: :delete, data: { confirm: 'Are you sure?' } %>
+<% if current_user == @link.user %>
+  <%= link_to 'edit', edit_link_path %>
+  |<%= link_to 'delete', link_path(@link), method: :delete, data: { confirm: 'Are you sure?' } %>
+<% end %>
