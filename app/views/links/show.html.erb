@@ -24,3 +24,6 @@
     </div>
   <% end %>
 </div>
+<h3><%= @link.comments.count %> coments</h3>
+<%= render 'comments/form' %>
+<%= render @link.comments %>
