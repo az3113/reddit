@@ -1,0 +1,21 @@
+<%= form_for @link do |f| %>
+  <% if @link.errors.any? %>
+    <h2><%= pluralize(@link.errors.count, 'error') %></h2>
+    <ul>
+      <% @link.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  <% end %>
+  <p>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :url %>
+    <%= f.text_field :url %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
