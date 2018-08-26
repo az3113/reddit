@@ -7,15 +7,17 @@
       <% end %>
     </ul>
   <% end %>
-  <p>
+  <div class="content_form">
     <%= f.label :title %>
-    <%= f.text_field :title %>
-  </p>
-  <p>
+    <div class="input-group-lg">
+      <%= f.text_field :title, class: "form-control", placeholder: 'Titulo' %>
+    </div>
     <%= f.label :url %>
-    <%= f.text_field :url %>
-  </p>
-  <p>
-    <%= f.submit %>
-  </p>
+    <div class="input-group-lg">
+      <%= f.text_field :url, class: "form-control", placeholder: 'Url' %>
+    </div>
+    <p>
+      <%= f.submit %>
+    </p>
+  </div>
 <% end %>
