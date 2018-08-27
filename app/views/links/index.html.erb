@@ -1,0 +1,11 @@
+<h3 class="title">Links</h3>
+<div class="links">
+  <% @links.each do |link| %>
+  <div class="link">
+    <h2>
+      <%= link_to link.title, link %>
+    </h2>
+    <small>Created at <%= link.created_at.strftime("%B %d, %Y") %> by <%= link.user.email %></small>
+  </div>
+  <% end %>
+</div>
