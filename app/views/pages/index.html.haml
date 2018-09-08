@@ -1,0 +1,12 @@
+.row
+  .concept-reedit.col-md-8
+    %h1 This is Reddit clone
+    %p.lead
+      This is Reddit clone or that's trying
+      %br/
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam reprehenderit, cumque, mollitia laborum expedita quae?
+  .col-md-4
+    %h3 Urls last
+    - @links[0..4].each do |link|
+      %li= link_to link.title, link_path(link), class: "list-group-item"
+= render 'contacts/form'

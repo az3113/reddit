@@ -1,0 +1,12 @@
+.container-contact
+  %h3 Contact Us
+  %p Got a question?. Send us a message and we'll respond as soon as possible
+  = form_tag(send_mail_path) do
+    .form-group
+      = text_field_tag 'name', nil, class: 'form-control', placeholder: 'Your Name'
+    .form-group
+      = email_field_tag 'email', nil, class: 'form-control', placeholder: 'Your Email Address'
+    .form-group
+      = label_tag 'message', 'Message'
+      = text_area_tag 'message', nil, class: 'form-control', rows: 4, placeholder: 'Comments...'
+    = submit_tag 'Send', class: 'btn btn-danger btn-about pull-right'

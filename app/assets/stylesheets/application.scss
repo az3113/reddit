@@ -50,5 +50,22 @@
 }
 /* contact form */
 .container-contact {
-  padding: 3em;
+  background-image: linear-gradient(white, orange);
+  h3, p { text-align: center; }
+  padding: 2em 4em;
+}
+/* Landing */
+.row {
+  margin-left: auto;
+  margin-right: auto;
+  widht: 100%;
+  .concept-reedit {
+    padding: 2em 4em;
+    height: 50vh;
+  }
+  li {
+    list-style: none;
+    a { color: blue; }
+  }
+  h3 { text-align: center; }
 }

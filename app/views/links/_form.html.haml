@@ -1,0 +1,15 @@
+= form_for @link do |f|
+  - if @link.errors.any?
+    %h2= pluralize(@link.errors.count, 'error')
+    %ul
+      - @link.errors.full_messages.each do |msg|
+        %li= msg
+  .content_form
+    = f.label :title
+    .input-group-lg
+      = f.text_field :title, class: "form-control", placeholder: 'Titulo'
+    = f.label :url
+    .input-group-lg
+      = f.text_field :url, class: "form-control", placeholder: 'Url'
+    %p
+      = f.submit

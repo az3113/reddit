@@ -1,0 +1,8 @@
+%h3.title Links
+.links
+  - @links.each do |link|
+    .link
+      %h2
+        = link_to link.title, link
+      %small
+        Created at #{link.created_at.strftime("%B %d, %Y")} by #{link.user.email}
