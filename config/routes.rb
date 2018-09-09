@@ -9,5 +9,5 @@ Rails.application.routes.draw do
     end
     resources :comments
   end
-  root 'links#index'
+  root 'pages#index'
 end

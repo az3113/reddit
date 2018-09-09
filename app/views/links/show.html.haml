@@ -1,0 +1,26 @@
+.link_content
+  %h2= @link.title
+  %small
+    Submitted #{time_ago_in_words(@link.created_at)} Ago Submitted by #{@link.user.email}
+  %br/
+  .btn-group
+    = link_to 'Visit URL', @link.url, class: "btn btn-primary"
+  .btn-group
+    = link_to like_link_path(@link), method: :put, class: "btn btn-default btn-sm" do
+      %span.glyphicon.glyphicon-chevron-up
+      Upvote
+      \#{@link.get_upvotes.size}
+    = link_to dislike_link_path(@link), method: :put, class: "btn btn-default btn-sm" do
+      %span.glyphicon.glyphicon-chevron-down
+        Downvote
+        \#{@link.get_downvotes.size}
+  %br/
+  - if current_user == @link.user || has_role?(:admin)
+    .btn-group
+      = link_to 'Edit', edit_link_path, class: 'btn btn-danger'
+      = link_to 'Delete', link_path(@link), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'
+%h3
+  = @link.comments.count
+  coments
+= render 'comments/form'
+= render @link.comments

@@ -37,6 +37,9 @@ gem 'bootstrap-sass', '~> 3.3.7'
 gem 'jquery-rails'
 gem 'acts_as_votable', '~> 0.11.1'
 gem 'dotenv-rails', groups: [:development, :test]
+gem 'haml'
+gem 'cancancan', '~> 2.0'
+gem "rolify"
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
