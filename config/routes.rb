@@ -9,5 +9,8 @@ Rails.application.routes.draw do
     end
     resources :comments
   end
+  namespace :api, defaults: {format: 'json'} do
+    resources :links, only: :index
+  end
   root 'pages#index'
 end
