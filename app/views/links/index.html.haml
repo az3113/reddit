@@ -1,8 +1,12 @@
 %h3.title Links
-.links
-  - @links.each do |link|
-    .link
-      %h2
-        = link_to link.title, link
-      %small
-        Created at #{link.created_at.strftime("%B %d, %Y")} by #{link.user.email}
+.row.links
+  .col-md-8
+    - @links.each do |link|
+      .link
+        .row
+          .col-md-8
+            %h2
+              = link_to link.title, link
+            %small
+              %i.fas.fa-user-circle
+              Created at #{link.created_at.strftime("%B %d, %Y")} by #{link.user.email}
