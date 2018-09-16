@@ -1,12 +1,13 @@
 %h3.title Links
 .row.links
-  .col-md-8
+  .col-md-7
     - @links.each do |link|
       .link
         .row
-          .col-md-8
+          .col-md-12
             %h2
               = link_to link.title, link
+            %p= truncate(link.content, length: 100)
             %small
               %i.fas.fa-user-circle
               Created at #{link.created_at.strftime("%B %d, %Y")} by #{link.user.email}
