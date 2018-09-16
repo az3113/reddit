@@ -7,10 +7,9 @@
           %span.icon-bar
           %span.icon-bar
           %span.icon-bar
-        %a.navbar-brand{:href => "#"} reddit
+        = link_to 'Reddit', root_path, class: 'navbar-brand'
       #navbar.navbar-collapse.navbar-right.collapse
         %ul.nav.navbar-nav
-          %li= link_to 'Home', root_path
           %li= link_to 'Links', links_path
           - if current_user
             %li= link_to 'New link', new_link_path
