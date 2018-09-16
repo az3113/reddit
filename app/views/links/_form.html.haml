@@ -11,5 +11,8 @@
     = f.label :url
     .input-group-lg
       = f.url_field :url, class: "form-control", placeholder: 'Url'
+    = f.label :Content
+    .input-group-lg
+      = f.text_area :content, class: "form-control", placeholder: 'Content...',rows: 5
     %p
       = f.submit
