@@ -15,10 +15,7 @@
         Downvote
         \#{@link.get_downvotes.size}
   %br/
-  - if current_user == @link.user || has_role?(:admin)
-    .btn-group
-      = link_to 'Edit', edit_link_path, class: 'btn btn-danger'
-      = link_to 'Delete', link_path(@link), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'
+  = render contact_user_partial_path
 %h3
   = @link.comments.count
   coments
