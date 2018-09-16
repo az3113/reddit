@@ -3,6 +3,6 @@ class Link < ApplicationRecord
   belongs_to :user
   has_many :comments
   validates :title, presence: true, length: { minimum: 5}
-  validates :url, presence: true
+  validates :url, :content, presence: true
   resourcify
 end
