@@ -70,9 +70,13 @@
   h3 { text-align: center; }
 }
 /* link */
-.link {
+.link-preview, .link {
   border-style: solid;
   border-radius: 8px;
   padding: 1em .5em;
   margin: 1em 0px;
+}
+.link-preview {
+  padding: .5em 1em;
+  margin: .5em 0px;
 }

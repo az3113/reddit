@@ -8,5 +8,9 @@
   .col-md-4
     %h3 Urls last
     - @links[0..4].each do |link|
-      %li= link_to link.title, link_path(link), class: "list-group-item"
+      .row
+        .col-md-12
+          .link-preview
+            %h4= link_to link.title, link_path(link)
+            %p= truncate(link.content, length: 50)
 = render 'contacts/form'
