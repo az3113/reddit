@@ -8,6 +8,12 @@
             %h2
               = link_to link.title, link
             %p= truncate(link.content, length: 100)
-            %small
-              %i.fas.fa-user-circle
-              Created at #{link.created_at.strftime("%B %d, %Y")} by #{link.user.email}
+            %small.row
+              .col-md-10
+                %i.fas.fa-user-circle
+                Created at #{link.created_at.strftime("%B %d, %Y")} by #{link.user.email}
+              .col-md-2
+                \#{link.get_upvotes.size}
+                %i.fas.fa-heart
+                \#{link.comments.count}
+                %i.fas.fa-comment
