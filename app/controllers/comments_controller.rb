@@ -1,6 +1,7 @@
 class CommentsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_link
+  before_action :find_comment, only: [:destroy]
   def create
     @comment = @link.comments.new(comment_params)
     @comment.user = current_user
@@ -10,7 +11,6 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    @comment = @link.comments.find(params[:id])
     @comment.destroy
     redirect_to @link
   end
@@ -22,5 +22,9 @@ class CommentsController < ApplicationController
 
   def set_link
     @link = Link.find(params[:link_id])
+  end
+
+  def find_comment
+    @comment = @link.comments.find(params[:id])
   end
 end
