@@ -1,5 +1,6 @@
 class LinksController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
+  before_action :find_link, except: [:index, :new, :create]
   def index
     @links = Link.all.order('created_at DESC')
   end
@@ -11,22 +12,19 @@ class LinksController < ApplicationController
   def create
     @link = current_user.links.create(link_params)
     if @link.save
-      redirect_to root_path
+      redirect_to @link
     else
       render :new
     end
   end
 
   def show
-    @link = Link.find(params[:id])
   end
 
   def edit
-    @link = Link.find(params[:id])
   end
 
   def update
-    @link = Link.find(params[:id])
     if @link.update(link_params)
       redirect_to @link
     else
@@ -35,19 +33,16 @@ class LinksController < ApplicationController
   end
 
   def destroy
-    @link = Link.find(params[:id])
     @link.destroy
     redirect_to root_path
   end
 
   def upvote
-    @link = Link.find(params[:id])
     @link.upvote_by current_user
     redirect_to @link
   end
 
   def downvote
-    @link = Link.find(params[:id])
     @link.downvote_by current_user
     redirect_to @link
   end
@@ -55,5 +50,9 @@ class LinksController < ApplicationController
   private
   def link_params
     params.require(:link).permit(:title, :url, :content)
+  end
+
+  def find_link
+    @link = Link.find(params[:id])
   end
 end
