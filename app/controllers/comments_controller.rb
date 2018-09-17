@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_link
   def create
-    @link = Link.find(params[:link_id])
     @comment = @link.comments.new(comment_params)
     @comment.user = current_user
     if @comment.save
@@ -10,7 +10,6 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    @link = Link.find(params[:link_id])
     @comment = @link.comments.find(params[:id])
     @comment.destroy
     redirect_to @link
@@ -20,5 +19,8 @@ class CommentsController < ApplicationController
   def comment_params
     params.require(:comment).permit(:body, :link_id, :user_id)
   end
-end
 
+  def set_link
+    @link = Link.find(params[:link_id])
+  end
+end
