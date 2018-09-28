@@ -39,7 +39,7 @@ gem 'acts_as_votable', '~> 0.11.1'
 gem 'dotenv-rails', groups: [:development, :test]
 gem 'haml'
 gem 'cancancan', '~> 2.0'
-gem "rolify"
+gem 'rolify'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
@@ -47,6 +47,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'rubocop'
 end
 
 group :development do

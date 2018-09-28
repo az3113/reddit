@@ -1,3 +1,4 @@
+# ContactsController
 class ContactsController < ApplicationController
   def send_mail
     name = params[:name]

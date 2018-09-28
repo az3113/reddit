@@ -1,2 +1,3 @@
+# CommentHelper
 module CommentsHelper
 end

@@ -1,3 +1,4 @@
+# LinksController
 class LinksController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :find_link, except: [:index, :new, :create]
@@ -6,7 +7,7 @@ class LinksController < ApplicationController
   end
 
   def new
-    @link = current_user.links.build
+    @link = current_user.links.new
   end
 
   def create
@@ -48,6 +49,7 @@ class LinksController < ApplicationController
   end
 
   private
+
   def link_params
     params.require(:link).permit(:title, :url, :content)
   end
