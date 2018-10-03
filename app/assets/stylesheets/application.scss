@@ -80,3 +80,22 @@
   padding: .5em 1em;
   margin: .5em 0px;
 }
+/* comment */
+.content-comment {
+  padding: 1em 2em;
+  width: 60%;
+  border-style: ridge;
+  border-radius: 8px;
+  margin: 1em .5em;
+  p small {
+    color: blue;
+  }
+}
+/* comment-form */
+.form-comment {
+  width: 50%;
+  margin: 1em .5em;
+  #comment_body {
+    width: 50%;
+  }
+}

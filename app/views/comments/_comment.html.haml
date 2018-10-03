@@ -1,5 +1,5 @@
 .content-comment
-  %p.lead= comment.body
+  %small.lead= comment.body
   %p
     %small
       Submitted
@@ -7,6 +7,5 @@
         = time_ago_in_words(comment.created_at)
         ago
       by #{comment.user.email}
-%br/
-- if comment.user == current_user || has_role?(:admin)
-  = link_to 'Destroy', ([@link,comment]), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger"
+  - if comment.user == current_user || has_role?(:admin)
+    = link_to 'Destroy', ([@link,comment]), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger"
